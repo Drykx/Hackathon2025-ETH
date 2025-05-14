@@ -1,74 +1,78 @@
-# Electricity Demand Forecasting Project
-**Hackathon 2025 with Alpiq**
+# ⚡ Electricity Demand Forecasting Project  
+**Datathon 2025: Alpiq's project**
 
-## Project Overview
+---
 
 ## 📊 Project Overview
 
-This project focuses on predicting **hourly electricity demand** for thousands of consumers in Italy and Spain.
+This project focuses on predicting **hourly electricity demand** for thousands of consumers across Italy and Spain.
 
-During the 2025 Alpiq Datathon, we were tasked with developing the best possible model to forecast **an entire month of hourly demand** for each consumer. We started by implementing a simple baseline model that used the average consumption for each day of the week and hour, based on the previous month's data.
+During the 2025 Alpiq Datathon, our team was tasked with developing a model to forecast **an entire month of hourly demand** per consumer. We began with a baseline model that used average consumption per weekday and hour, based on the prior month's data.
 
-From there, we iteratively improved our approach, exploring more advanced modeling techniques and feature engineering to boost prediction accuracy and reduce test set loss.
+We then iteratively improved performance using advanced modeling techniques and feature engineering to increase prediction accuracy and reduce test loss.
 
+---
 
-## How-to
+## 🛠️ How to Use
 
 ### 📦 Prepare the Dataset
 
-1. Place the dataset files in the **root directory** of the repository.
-2. Unzip the provided **model_weights.zip** file in the root – the preprocessing step uses these weights for data imputation.
+1. Place the dataset files in the **root directory**.
+2. Unzip the provided `model_weights.zip` file in the root — these weights are required for imputation during preprocessing.
 
 ---
 
 ### 🚀 Run the Main Notebook
 
-Open and run the notebook:
+Run the following notebook to execute the full pipeline:
 
-📓 [`per_consumer_modeling.ipynb`](https://github.com/Drykx/Hackathon2025-ETH/blob/main/notebooks/per_consumer_modeling.ipynb)
+📓 [`notebooks/per_consumer_modeling.ipynb`](https://github.com/Drykx/Hackathon2025-ETH/blob/main/notebooks/per_consumer_modeling.ipynb)
 
-This notebook walks through:
+This notebook covers:
 
-- Loading the data
-- Preprocessing (including imputation with the General Model)
-- Feature analysis
-- Building and evaluating per-consumer models
+- Data loading and preprocessing  
+- Imputation using the Global Model  
+- Training and evaluating per-consumer models  
 
-> ✅ This is the only notebook you need to run to use the full pipeline.
+> ✅ This is the only notebook you need to run the full forecasting workflow.
 
-## Developed Models
+---
 
-- **Global Model**
-  This model used the consumer ID as an additional input and helped impute missing (NaN) values between real demand data points.
+## 🤖 Developed Models
 
-- **Individual Consumer Models**
-  Separate models were trained for each consumer. The feature set included:
-  - Cyclic period transformations (sine/cosine)
-  - Temperature
-  - Sunlight
-  - Weekend flags
-  - Holidays
-  - Lag features (1 day, 1 week, 2 weeks)
+### 🔁 Global Model
 
-  These features were selected after careful exploratory data analysis (EDA).
+Used **consumer ID** as an input to impute missing values in the demand series, serving as a foundation for preprocessing.
 
-The chosen model for both imputation and forecasting was **LightGBM**, a gradient boosting framework designed for speed and efficiency.
+### 👤 Per-Consumer Models
 
-## Repository Structure
+Trained separately for each consumer, using carefully engineered features such as:
 
-- `README.md`: Contains the project overview and setup instructions.
-- `datathon2025_quAIntly_presentation.ppxt`: PowerPoint presentation of the project
-- `configs/`: Configuration files related to the project.
-- `datasets2025/`: Contains data files for various regions (e.g., Italy, Spain), including historical metering data, holiday data, and forecasts.
-- `environmentAlpiqDatathon.yml`: The environment setup file for the project dependencies.
-- `model.pkl`: The trained model saved for later use.
-- `notebooks/`: Jupyter notebooks for exploration, model building, and analysis, including specific notebooks for individual tasks like clustering and per-consumer modeling.
-- `predictions/`: Contains the output of model predictions for Italy and Spain.
-- `scripts/`: Python scripts for data processing, forecasting, and scoring.
-- `setup.py`: Setup script for packaging the project.
-- `src/`: Contains the core Python code for data processing, feature engineering, model training, and evaluation.
+- Time-based cyclic features (sine/cosine)
+- Temperature and sunlight data
+- Weekend and holiday flags
+- Lag features (1 day, 1 week, 2 weeks)
 
+We selected **LightGBM** for both imputation and forecasting due to its speed and accuracy.
 
-## Acknowledgments
+---
 
-Thanks to **Alpiq** for the interesting challenge and the opportunity to tackle such a complex forecasting problem!
+## 📂 Repository Structure
+
+- `README.md` — Project overview and instructions  
+- `datathon2025_quAIntly_presentation.pptx` — Final presentation  
+- `configs/` — Configuration files  
+- `datasets2025/` — Input data (Italy, Spain, holidays, weather, etc.)  
+- `environmentAlpiqDatathon.yml` — Dependency list (conda environment)  
+- `model.pkl` — Trained model file  
+- `notebooks/` — Jupyter notebooks for development and analysis  
+- `predictions/` — Model output predictions  
+- `scripts/` — Scripts for preprocessing, forecasting, and scoring  
+- `setup.py` — Setup script for packaging  
+- `src/` — Core code: preprocessing, feature engineering, training
+
+---
+
+## 🙏 Acknowledgments
+
+Special thanks to **Alpiq** for organizing the challenge and providing the opportunity to work on a real-world, large-scale energy forecasting problem!
