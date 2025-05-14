@@ -1,5 +1,6 @@
-# ⚡ Electricity Demand Forecasting Project  
-**Datathon 2025: Alpiq's project**
+# ⚡ Electricity Demand Forecasting Project
+
+> 🏅 Our team placed **4th out of 11** at the 2025 Datathon in Zurich, organized around Alpiq's forecasting challenge.
 
 ---
 
@@ -7,9 +8,9 @@
 
 This project focuses on predicting **hourly electricity demand** for thousands of consumers across Italy and Spain.
 
-During the 2025 Alpiq Datathon, our team was tasked with developing a model to forecast **an entire month of hourly demand** per consumer. We began with a baseline model that used average consumption per weekday and hour, based on the prior month's data.
+During the 2025 Alpiq Datathon, our team was tasked with developing a model to forecast **an entire month of hourly demand** for each individual consumer. We began with a baseline model that averaged consumption by weekday and hour, using the prior month's data.
 
-We then iteratively improved performance using advanced modeling techniques and feature engineering to increase prediction accuracy and reduce test loss.
+From there, we iteratively improved performance through advanced modeling techniques and feature engineering to boost accuracy and reduce test loss.
 
 ---
 
